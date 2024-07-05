@@ -5,7 +5,7 @@ A helper for creating events stream, supports snapshots
 `yarn add typescript-event-stream`
 `npm -D typescript-event-stream`
 
-## quick sample
+## What for ?
 ```typescript
 import { EventStream } from 'typescript-event-stream';
 
