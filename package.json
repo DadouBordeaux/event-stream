@@ -1,0 +1,8 @@
+{
+  "name": "event-stream",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:DadouBordeaux/event-stream.git",
+  "author": "Damien J <jorisdamien@gmail.com>",
+  "license": "MIT"
+}
