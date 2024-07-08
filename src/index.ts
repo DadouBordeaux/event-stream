@@ -70,38 +70,3 @@ export class EventStream<TEvent, KSnapshot> {
     );
   }
 }
-
-// import
-
-type Withdraw = {
-  type: "withdraw";
-  amount: number;
-};
-
-type Deposit = {
-  type: "deposit";
-  amount: number;
-};
-
-type Events = Withdraw | Deposit;
-
-const eventStream = new EventStream<Events, undefined>([]);
-
-eventStream.addEvent({ type: "deposit", amount: 100 });
-eventStream.addEvent({ type: "withdraw", amount: 50 });
-
-class BankAcountProjection
-  implements ProjectionBuilder<Events, undefined, number>
-{
-  execute(history: Events[], historyChanges: Events[]): number {
-    return history.reduce((acc, event) => {
-      if (event.type === "deposit") {
-        return acc + event.amount;
-      }
-
-      return acc - event.amount;
-    }, 0);
-  }
-}
-
-eventStream.project(new BankAcountProjection()); // 50
